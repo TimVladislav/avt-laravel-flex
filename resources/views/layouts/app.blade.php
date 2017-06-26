@@ -15,7 +15,8 @@
     <link rel="stylesheet" href="css/fonts.css">
 </head>
 <body>
-    <div id="app">
+    <a class="nav__btn nav__btn--floating" href="#nav__right-bar"><i class="fa fa-bars"></i></a>
+    <main id="app">
         <header>
             <nav id="nav__top">
                 <a href="/"><div id="nav__logo"><img src="/img/logo1.png" alt=""></div></a>
@@ -24,7 +25,7 @@
         </header>
 
         @yield('content')
-    </div>
+    </main>
     <nav id="nav__right-bar">
         <div class="right-bar__top">
             <a href="/" id="nav__logo"><img src="/img/logo1.png" alt=""></a>

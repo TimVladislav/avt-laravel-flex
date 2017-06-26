@@ -15,19 +15,48 @@
 @import "public/sliders/slick-1.6.0/slick/slick.scss";
 @import "public/sliders/slick-1.6.0/slick/slick-theme.scss";
 
-$red:   #f0394d;
-$gray:  #666;
+$red:       #f0394d;
+$gray:      #666;
+$gray-dark: #333;
 
 body, html {
   height: 100%;
   margin: 0;
   padding: 0;
 }
+h1, .h1 {
+  font-size: 40px;
+}
+h1, h2, h3, .h1, .h2, .h3 {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+h1, h2, h3, h4, h5, h6, h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
+  color: $gray-dark;
+}
+h1, h2, h3, h4, h5, h6 {
+  font-family: oswald, sans-serif;
+}
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+  font-weight: 500;
+  line-height: 1.1;
+  color: inherit;
+}
+p {
+  font-family: 'arvo', serif;
+  font-size: 16px;
+  line-height: 26px;
+  margin-bottom: 25px;
+  color: #6a6a6a;
+}
+.blurb {
+  margin-top: 20px;
+}
 #app {
   display: flex;
   position: relative;
   flex-wrap: wrap;
-  background-color: rgba(0,0,0,.1);
+  flex-basis: 100%;
   min-height: 100%;
   transition: all 0.3s ease-in-out;
   min-width: 360px;
@@ -75,6 +104,16 @@ body, html {
   &:hover {
     color: $red;
   }
+}
+.nav__btn--floating {
+  position: fixed;
+  right: 70px;
+  top: 82px;
+  padding: 5px 10px;
+  background-color: white;
+  color: $gray;
+  transition: all 0.3s ease-in-out;
+  z-index: 1;
 }
 .nav__btn--gray {
   color: $gray;
@@ -124,11 +163,42 @@ body, html {
 .heart--red {
   color: $red;
 }
+.heart--white {
+  color: white;
+}
+.heart--line {
+  padding-right: 0;
+  margin: 0 5px;
+}
+.heart--ml {
+  margin-left: -10px;
+}
 .heart--small {
   font-size: 10px;
 }
+.heart--medium {
+  font-size: 18px;
+}
+.heart--z {
+  z-index: 1;
+}
+.white-line {
+  width: 10px;
+  border-bottom: 1px solid white;
+  height: 1px;
+  box-sizing: border-box;
+  display: block;
+}
+.line-hearts {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 60px;
+}
 .main-slider-section {
   width: 100%;
+  position: relative;
+  z-index: 2;
   .slick-list, .slick-track, .slick-slide {
     height: 100%;
   }
@@ -170,7 +240,7 @@ body, html {
   align-items: center;
   justify-content: center;
   pointer-events: none;
-  background-color: rgba(0,0,0,.3);
+  background-color: rgba(0,0,0,.4);
 }
 .text-center {
   text-align: center;
@@ -194,10 +264,117 @@ body, html {
   border-bottom: medium double white;
   border-top: medium double white;
   padding: 12px 50px;
-  margin-top: 40px;
+  margin-top: 60px;
   position: relative;
   letter-spacing: 3px;
   font-size: 16px;
+}
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  flex: 0 0 1170px;
+  max-width: 1170px;
+  min-width: 360px;
+  flex-direction: column;
+  margin: 140px auto 100px;
+}
+.persons {
+  display: flex;
+  flex: auto;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.persone {
+  display: flex;
+  flex: 0 0 50%;
+  justify-content: center;
+}
+.persone > figure {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.persone__img {
+  width: 405px;
+  height: 405px;
+  display: flex;
+  background-size: 100%;
+  justify-content: center;
+  align-items: center;
+  background-position: center;
+  transition: background-size 0.5s;
+  -moz-transition: background-size 0.5s;
+  -ms-transition: background-size 0.5s;
+  -o-transition: background-size 0.5s;
+  -webkit-transition: background-size 0.5s;
+}
+.persone__img:hover {
+  background-size: 120%;
+}
+.square {
+  position: relative;
+  height: auto;
+}
+.square:before {
+  content: "";
+  display: block;
+  padding-top: 100%;
+}
+.persone__img--bg {
+  display: block;
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  bottom: 15px;
+  left: 15px;
+  border: 1px solid white;
+  transition: all 0.5s ease-in-out;
+}
+.persone__img:hover .persone__img--bg {
+  background-color: rgba(0,0,0,.5);
+  border: none;
+}
+.persone__img:hover .persone__img__btn {
+  display: block;
+}
+.persone__img__btn {
+  z-index: 3;
+  display: none;
+  text-decoration: none;
+  padding: 10px 50px;
+  font-size: 16px;
+  background-color: transparent;
+  border: solid 1px #FFF;
+  color: #FFF;
+  font-family: oswald, sans-serif;
+}
+.persone__img__btn:hover {
+  background-color: $red;
+  border: none;
+}
+
+@media screen and (max-width: 1200px) {
+  .container {
+    flex: 0 0 970px;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .container {
+    flex: 0 1 750px;
+  }
+  .persone {
+    display: flex;
+    flex: 0 1 100%;
+  }
+  .persone__img {
+    width: calc(100% - 60px);
+    display: flex;
+  }
+  .nav__btn--floating {
+    right: 20px;
+  }
 }
 
 @media screen and (max-width: 600px) {

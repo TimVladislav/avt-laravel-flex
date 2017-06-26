@@ -22,21 +22,29 @@ const app = new Vue({
 });
 
 $(document).ready(function () {
+   var barPosition = false;
+   var element = $('.nav__btn--floating');
+
+   $(window).scroll(function() {
+       element['fade' + ($(this).scrollTop() > $(window).height() ? 'In' : 'Out')](0);
+   });
+
+   $('.main-slider-section').css('height', $(window).height() + 'px');
    $(function(){
        $(window).resize(function() {
            $('.main-slider-section').css('height', $(window).height() + 'px');
        });
    });
 
-   barPosition = false;
-
    function barOpen() {
        $('#app').css('transform', 'translate(-320px, 0)');
        $('#nav__right-bar').css('transform', 'translate(-320px, 0)');
+       $('.nav__btn--floating').css('transform', 'translate(-320px, 0)');
    }
    function barClose() {
        $('#app').css('transform', 'translate(0px, 0)');
        $('#nav__right-bar').css('transform', 'translate(0px, 0)');
+       $('.nav__btn--floating').css('transform', 'translate(0px, 0)');
    }
    $('.nav__btn').on('click', function () {
        if (barPosition) barClose();
