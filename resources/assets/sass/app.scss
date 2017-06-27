@@ -227,14 +227,16 @@ p {
 .main-slider__item {
   background-position: center 0px;
   background-size: cover;
+  background-repeat: no-repeat;
   width: 100%;
   height: 100%;
+  min-height: 100%;
 }
 .main-slider__item--1 {
-  background-image: url("/../img/bg.jpg");
+  background-image: url("http://nevesta.moscow/wp-content/uploads/2016/06/AA_029.jpg");
 }
 .main-slider__item--2 {
-  background-image: url("/../img/bg2.jpg");
+  background-image: url("http://nevesta.moscow/wp-content/uploads/2015/07/AZA_1938.jpg");
 }
 .main-slider-section__text {
   position: absolute;
@@ -404,6 +406,13 @@ p {
 }
 
 @media screen and (max-width: 1000px) {
+  #nav__top {
+    padding: 0 40px;
+    top: 0px;
+  }
+  .main-slider__item {
+    background-position: inherit;
+  }
   .container {
     flex: 0 1 750px;
   }
@@ -454,7 +463,7 @@ p {
   }
   .line-text {
     padding: 12px 10px;
-    margin-top: 265px;
+    //margin-top: 265px;
     letter-spacing: 3px;
     font-size: 12px;
   }

@@ -54,7 +54,7 @@
             </div>
         </section>
     </section>
-    <section class="parallax-section" data-type="parallax" data-speed="-2" style="background-image: url(/img/bg2.jpg)">
+    <section class="parallax-section" data-type="parallax" data-speed="-2" style="background-image: url(http://nevesta.moscow/wp-content/uploads/2015/07/AZA_1938.jpg)">
     </section>
     <section class="container">
         <h1 class="text-center">THE HAPPY COUPLE</h1>

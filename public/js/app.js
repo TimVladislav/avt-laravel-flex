@@ -100,7 +100,7 @@ $(document).ready(function () {
         element['fade' + ($(this).scrollTop() > $(window).height() ? 'In' : 'Out')](0);
     });
 
-    $('.main-slider-section').css('height', $(window).height() + 'px');
+    $('.main-slider-section').css('height', document.documentElement.clientHeight + 'px');
     $(function () {
         $(window).resize(function () {
             $('.main-slider-section').css('height', $(window).height() + 'px');
@@ -123,6 +123,11 @@ $(document).ready(function () {
     });
 
     // Parallax
+    if (!device.desktop()) {
+        $('[data-type="parallax"]').each(function () {
+            $(this).removeAttr('data-type');
+        });
+    }
     $('[data-type="parallax"]').each(function () {
         var $bgobj = $(this); // создаем объект
         $(window).scroll(function () {

@@ -28,7 +28,7 @@ $(document).ready(function () {
        element['fade' + ($(this).scrollTop() > $(window).height() ? 'In' : 'Out')](0);
    });
 
-   $('.main-slider-section').css('height', $(window).height() + 'px');
+   $('.main-slider-section').css('height', document.documentElement.clientHeight + 'px');
    $(function(){
        $(window).resize(function() {
            $('.main-slider-section').css('height', $(window).height() + 'px');
@@ -52,14 +52,20 @@ $(document).ready(function () {
    });
 
    // Parallax
-   $('[data-type="parallax"]').each(function(){
-       var $bgobj = $(this); // создаем объект
-       $(window).scroll(function() {
-           var yPos = -($(window).scrollTop() / $bgobj.data('speed')); // вычисляем коэффициент
-           // Присваиваем значение background-position
-           var coords = 'center '+ yPos + 'px';
-           // Создаем эффект Parallax Scrolling
-           $bgobj.css({ backgroundPosition: coords });
+   if (!device.desktop()) {
+       $('[data-type="parallax"]').each(function () {
+           $(this).removeAttr('data-type');
        });
-   });
+   }
+       $('[data-type="parallax"]').each(function () {
+           var $bgobj = $(this); // создаем объект
+           $(window).scroll(function () {
+               var yPos = -($(window).scrollTop() / $bgobj.data('speed')); // вычисляем коэффициент
+               // Присваиваем значение background-position
+               var coords = 'center ' + yPos + 'px';
+               // Создаем эффект Parallax Scrolling
+               $bgobj.css({backgroundPosition: coords});
+           });
+       });
+
 });
