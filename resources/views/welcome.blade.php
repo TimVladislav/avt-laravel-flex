@@ -3,8 +3,8 @@
 @section('content')
     <section class="main-slider-section">
         <div class="main-slider">
-            <div class="main-slider__item main-slider__item--1"></div>
-            <div class="main-slider__item main-slider__item--2"></div>
+            <div class="main-slider__item main-slider__item--1" data-type="parallax" data-speed="-2"></div>
+            <div class="main-slider__item main-slider__item--2" data-type="parallax" data-speed="-2"></div>
         </div>
         <div class="main-slider-section__text">
             <div class="box text-center">
@@ -51,6 +51,71 @@
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer ultrices malesuada ante quis pharetra. Nullam non bibendum dolor. Ut vel turpis accumsan, efficitur dolor fermentum, tincidunt metus.
                     </p>
                 </figure>
+            </div>
+        </section>
+    </section>
+    <section class="parallax-section" data-type="parallax" data-speed="-2" style="background-image: url(/img/bg2.jpg)">
+    </section>
+    <section class="container">
+        <h1 class="text-center">THE HAPPY COUPLE</h1>
+        <p class="text-center">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer ultrices malesuada ante quis pharetra. Nullam non bibendum dolor. Ut vel turpis accumsan, efficitur dolor fermentum, tincidunt metus.</p>
+        <section class="cards">
+            <div class="card">
+                <div class="card__image">
+                    <div class="persone">
+                        <figure>
+                            <div style="background-image: url(http://demo.dethemes.com/forever/versions/side-bar/images/him2.jpg)" alt="Андрей" class="persone__img square">
+                                <div class="persone__img--bg"></div>
+                                <a href="#" class="persone__img__btn">Подробнее</a>
+                            </div>
+                            <h3 class="persone__title">
+                                LOCATION
+                            </h3>
+                            <p class="persone__text">
+                                <strong>Андрей Тимошенко (видеограф).</strong>
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer ultrices malesuada ante quis pharetra. Nullam non bibendum dolor. Ut vel turpis accumsan, efficitur dolor fermentum, tincidunt metus.
+                            </p>
+                        </figure>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card__image">
+                    <div class="persone">
+                        <figure>
+                            <div style="background-image: url(http://demo.dethemes.com/forever/versions/side-bar/images/him2.jpg)" alt="Андрей" class="persone__img square">
+                                <div class="persone__img--bg"></div>
+                                <a href="#" class="persone__img__btn">Подробнее</a>
+                            </div>
+                            <h3 class="persone__title">
+                                LOCATION
+                            </h3>
+                            <p class="persone__text">
+                                <strong>Андрей Тимошенко (видеограф).</strong>
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer ultrices malesuada ante quis pharetra. Nullam non bibendum dolor. Ut vel turpis accumsan, efficitur dolor fermentum, tincidunt metus.
+                            </p>
+                        </figure>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card__image">
+                    <div class="persone">
+                        <figure>
+                            <div style="background-image: url(http://demo.dethemes.com/forever/versions/side-bar/images/him2.jpg)" alt="Андрей" class="persone__img square">
+                                <div class="persone__img--bg"></div>
+                                <a href="#" class="persone__img__btn">Подробнее</a>
+                            </div>
+                            <h3 class="persone__title">
+                                LOCATION
+                            </h3>
+                            <p class="persone__text">
+                                <strong>Андрей Тимошенко (видеограф).</strong>
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer ultrices malesuada ante quis pharetra. Nullam non bibendum dolor. Ut vel turpis accumsan, efficitur dolor fermentum, tincidunt metus.
+                            </p>
+                        </figure>
+                    </div>
+                </div>
             </div>
         </section>
     </section>

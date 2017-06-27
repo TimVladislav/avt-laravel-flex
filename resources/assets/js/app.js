@@ -24,7 +24,6 @@ const app = new Vue({
 $(document).ready(function () {
    var barPosition = false;
    var element = $('.nav__btn--floating');
-
    $(window).scroll(function() {
        element['fade' + ($(this).scrollTop() > $(window).height() ? 'In' : 'Out')](0);
    });
@@ -50,5 +49,17 @@ $(document).ready(function () {
        if (barPosition) barClose();
        else barOpen();
        barPosition = !barPosition;
+   });
+
+   // Parallax
+   $('[data-type="parallax"]').each(function(){
+       var $bgobj = $(this); // создаем объект
+       $(window).scroll(function() {
+           var yPos = -($(window).scrollTop() / $bgobj.data('speed')); // вычисляем коэффициент
+           // Присваиваем значение background-position
+           var coords = 'center '+ yPos + 'px';
+           // Создаем эффект Parallax Scrolling
+           $bgobj.css({ backgroundPosition: coords });
+       });
    });
 });

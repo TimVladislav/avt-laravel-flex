@@ -18,11 +18,13 @@
 $red:       #f0394d;
 $gray:      #666;
 $gray-dark: #333;
+$main-bg:   #f6f6f6;
 
 body, html {
   height: 100%;
   margin: 0;
   padding: 0;
+  background-color: $main-bg;
 }
 h1, .h1 {
   font-size: 40px;
@@ -107,6 +109,7 @@ p {
 }
 .nav__btn--floating {
   position: fixed;
+  display: none;
   right: 70px;
   top: 82px;
   padding: 5px 10px;
@@ -114,6 +117,10 @@ p {
   color: $gray;
   transition: all 0.3s ease-in-out;
   z-index: 1;
+}
+.nav__btn--floating:hover {
+  background-color: $red;
+  color: white;
 }
 .nav__btn--gray {
   color: $gray;
@@ -218,7 +225,7 @@ p {
   height: 100%;
 }
 .main-slider__item {
-  background-position: center;
+  background-position: center 0px;
   background-size: cover;
   width: 100%;
   height: 100%;
@@ -277,6 +284,7 @@ p {
   min-width: 360px;
   flex-direction: column;
   margin: 140px auto 100px;
+  align-items: center;
 }
 .persons {
   display: flex;
@@ -296,8 +304,7 @@ p {
   align-items: center;
 }
 .persone__img {
-  width: 405px;
-  height: 405px;
+  width: 100%;
   display: flex;
   background-size: 100%;
   justify-content: center;
@@ -353,6 +360,42 @@ p {
   background-color: $red;
   border: none;
 }
+.parallax-section {
+  width: 100%;
+  display: flex;
+  flex: auto;
+  height: 622px;
+}
+.cards {
+  display: flex;
+  flex: auto;
+  width: calc(100% / 12 * 10);
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.card {
+  display: flex;
+  background-color: white;
+  flex: 0 1 calc(33.33% - 30px);
+}
+.card__image > .persone > figure {
+  margin: 0;
+  align-items: flex-start;
+}
+.card__image > .persone > figure > p {
+  padding: 0 25px 25px 25px;
+  margin: 0;
+}
+.card__image .persone__img--bg {
+  top: 7px;
+  right: 7px;
+  bottom: 7px;
+  left: 7px;
+}
+.card .persone__title {
+  padding: 25px 25px 0 25px;
+  margin-top: 30px;
+}
 
 @media screen and (max-width: 1200px) {
   .container {
@@ -368,8 +411,22 @@ p {
     display: flex;
     flex: 0 1 100%;
   }
+  .card {
+    flex: 0 1 100%;
+    margin-bottom: 40px;
+  }
+  .card__image .persone__img--bg {
+    top: 15px;
+    right: 15px;
+    bottom: 15px;
+    left: 15px;
+  }
+  .persone > figure {
+    margin-left: 15px;
+    margin-right: 15px;
+  }
   .persone__img {
-    width: calc(100% - 60px);
+    width: 100%;
     display: flex;
   }
   .nav__btn--floating {
