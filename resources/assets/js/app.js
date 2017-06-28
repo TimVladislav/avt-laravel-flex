@@ -39,11 +39,13 @@ $(document).ready(function () {
        $('#app').css('transform', 'translate(-320px, 0)');
        $('#nav__right-bar').css('transform', 'translate(-320px, 0)');
        $('.nav__btn--floating').css('transform', 'translate(-320px, 0)');
+       $('.footer').css('transform', 'translate(-320px, 0)');
    }
    function barClose() {
        $('#app').css('transform', 'translate(0px, 0)');
        $('#nav__right-bar').css('transform', 'translate(0px, 0)');
        $('.nav__btn--floating').css('transform', 'translate(0px, 0)');
+       $('.footer').css('transform', 'translate(0px, 0)');
    }
    $('.nav__btn').on('click', function () {
        if (barPosition) barClose();
@@ -62,9 +64,11 @@ $(document).ready(function () {
            $(window).scroll(function () {
                var yPos = -($(window).scrollTop() / $bgobj.data('speed')); // вычисляем коэффициент
                // Присваиваем значение background-position
-               var coords = 'center ' + yPos + 'px';
+
+               var coords = 'center ' + (($bgobj.offset().top / $bgobj.data('speed')) + yPos) + 'px';
                // Создаем эффект Parallax Scrolling
                $bgobj.css({backgroundPosition: coords});
+
            });
        });
 

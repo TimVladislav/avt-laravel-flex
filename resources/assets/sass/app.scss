@@ -367,6 +367,10 @@ p {
   display: flex;
   flex: auto;
   height: 622px;
+  background-repeat: repeat-y;
+  background-size: cover;
+  position: relative;
+  background-position: center 0;
 }
 .cards {
   display: flex;
@@ -374,6 +378,7 @@ p {
   width: calc(100% / 12 * 10);
   flex-wrap: wrap;
   justify-content: space-between;
+  margin-top: 20px;
 }
 .card {
   display: flex;
@@ -397,6 +402,21 @@ p {
 .card .persone__title {
   padding: 25px 25px 0 25px;
   margin-top: 30px;
+}
+.line-hearts--content {
+  margin: 0 0 50px 0;
+  padding: 0;
+}
+.heart--gray {
+  color: #e1dddd;
+}
+.gray-line {
+  width: 30px;
+  border-bottom: 2px solid #e1dddd;
+}
+.footer {
+  background-image: url(http://nevesta.moscow/wp-content/uploads/2016/06/AA_029.jpg);
+  transition: transform 0.3s ease-in-out;
 }
 
 @media screen and (max-width: 1200px) {
@@ -442,6 +462,11 @@ p {
     right: 20px;
   }
 }
+@media screen and (max-width: 800px) {
+  .parallax-section {
+    background-size: 300%;
+  }
+}
 
 @media screen and (max-width: 600px) {
   #nav__top {
@@ -466,6 +491,9 @@ p {
     //margin-top: 265px;
     letter-spacing: 3px;
     font-size: 12px;
+  }
+  .parallax-section {
+    background-size: 350%;
   }
 }
 

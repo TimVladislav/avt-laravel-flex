@@ -32,6 +32,33 @@
             <a class="nav__btn nav__btn--gray" href="#nav__right-bar"><i class="fa fa-close"></i></a>
         </div>
         <div class="right-bar__items">
+            <ul class="nav navbar-nav navbar-right">
+                <!-- Authentication Links -->
+                @if (Auth::guest())
+                    <li><a href="{{ route('login') }}">Войти</a></li>
+                    <li><a href="{{ route('register') }}">Зарегистрироваться</a></li>
+                @else
+                    <li class="dropdown">
+                        <a href="/home" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                            {{ Auth::user()->name }} <span class="caret"></span>
+                        </a>
+
+                        <ul class="dropdown-menu" role="menu">
+                            <li>
+                                <a href="{{ route('logout') }}"
+                                   onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                    Выйти
+                                </a>
+
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                    {{ csrf_field() }}
+                                </form>
+                            </li>
+                        </ul>
+                    </li>
+                @endif
+            </ul>
             <ul>
                 <li><a href=""><i class="fa fa-heart heart heart--small heart--red"></i>Главная</a></li>
                 <li><a href=""><i class="fa fa-heart heart heart--small heart--red"></i>Обо мне</a></li>
@@ -42,6 +69,25 @@
             </ul>
         </div>
     </nav>
+    <footer class="parallax-section footer" data-type="parallax" data-speed="-2">
+        <div class="main-slider-section__text">
+            <div class="box text-center">
+                <div class="rotate">
+                    <div class="box__text">A<span class="text-red">V</span>T</div>
+                    <div class="box__text">video</div>
+                </div>
+                <div class="line-text">
+                    *** Видеосъемка свадеб и торжеств ***
+                </div>
+                <div class="line-hearts">
+                    <span class="white-line"></span>
+                    <i class="fa fa-heart heart heart--line heart--medium heart--red heart--z"></i>
+                    <i class="fa fa-heart heart heart--line heart--medium heart--white heart--ml"></i>
+                    <span class="white-line"></span>
+                </div>
+            </div>
+        </div>
+    </footer>
 
     <!-- Scripts -->
     <script src="/js/device.js"></script>
