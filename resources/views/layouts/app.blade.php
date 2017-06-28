@@ -16,6 +16,11 @@
 </head>
 <body>
     <a class="nav__btn nav__btn--floating" href="#nav__right-bar"><i class="fa fa-bars"></i></a>
+    <section id="modal">
+        <section id="window">
+            
+        </section>
+    </section>
     <main id="app">
         <header>
             <nav id="nav__top">
@@ -60,12 +65,12 @@
                 @endif
             </ul>
             <ul>
-                <li><a href=""><i class="fa fa-heart heart heart--small heart--red"></i>Главная</a></li>
-                <li><a href=""><i class="fa fa-heart heart heart--small heart--red"></i>Обо мне</a></li>
-                <li><a href=""><i class="fa fa-heart heart heart--small heart--red"></i>Прайс-лист</a></li>
-                <li><a href=""><i class="fa fa-heart heart heart--small heart--red"></i>Мои работы</a></li>
-                <li><a href=""><i class="fa fa-heart heart heart--small heart--red"></i>Оформить заказ</a></li>
-                <li><a href=""><i class="fa fa-heart heart heart--small heart--red"></i>Обратная связь</a></li>
+                <li><a href="/"><i class="fa fa-heart heart heart--small heart--red"></i>Главная</a></li>
+                <li><a href="/about"><i class="fa fa-heart heart heart--small heart--red"></i>Обо мне</a></li>
+                <li><a href="/price"><i class="fa fa-heart heart heart--small heart--red"></i>Прайс-лист</a></li>
+                <li><a href="/works"><i class="fa fa-heart heart heart--small heart--red"></i>Мои работы</a></li>
+                <li><a href="/order"><i class="fa fa-heart heart heart--small heart--red"></i>Оформить заказ</a></li>
+                <li><a href="/contacts"><i class="fa fa-heart heart heart--small heart--red"></i>Обратная связь</a></li>
             </ul>
         </div>
     </nav>

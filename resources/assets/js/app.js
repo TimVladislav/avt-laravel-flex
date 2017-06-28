@@ -52,6 +52,24 @@ $(document).ready(function () {
        else barOpen();
        barPosition = !barPosition;
    });
+   $('a[href="#modal"]').on('click', function (e) {
+       e.preventDefault();
+       $('#modal').css({
+           display: 'flex',
+       });
+       $('body').css({
+           overflow: 'hidden',
+       });
+   });
+   $('#modal').on('click', function () {
+      $(this).css({
+          display: 'none',
+      });
+       $('body').css({
+           overflow: 'auto',
+           position: 'relative',
+       });
+   });
 
    // Parallax
    if (!device.desktop()) {
