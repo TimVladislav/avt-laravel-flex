@@ -34,8 +34,9 @@ class User extends Authenticatable
      **/
     public function roles()
     {
-        return $this->belongsToMany('App\Models\Role', 'users_roles', 'user_id', 'role_id');
+        return $this->belongsToMany('App\Role', 'users_roles', 'user_id', 'role_id');
     }
+
     /**
      * Проверка принадлежит ли пользователь к какой либо роли
      *
@@ -46,6 +47,7 @@ class User extends Authenticatable
         $roles = $this->roles->toArray();
         return !empty($roles);
     }
+
     /**
      * Проверка имеет ли пользователь определенную роль
      *
@@ -57,6 +59,7 @@ class User extends Authenticatable
         // начиная с версии 5.1 метода array_fetch не существует
         //return in_array($check, array_fetch($this->roles->toArray(), 'name'));
     }
+
     /**
      * Получение идентификатора роли
      *
@@ -71,6 +74,7 @@ class User extends Authenticatable
         }
         return false;
     }
+
     /**
      * Добавление роли пользователю
      *
@@ -79,7 +83,7 @@ class User extends Authenticatable
     public function makeEmployee($title)
     {
         $assigned_roles = array();
-        $roles = array_fetch(Role::all()->toArray(), 'name');
+        $roles = array_pluck(Role::all()->toArray(), 'name');
         switch ($title) {
             case 'super_admin':
                 $assigned_roles[] = $this->getIdInArray($roles, 'super_admin');
