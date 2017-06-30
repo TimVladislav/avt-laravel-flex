@@ -8,6 +8,9 @@
 //require('./bootstrap');
 
 window.Vue = require('vue');
+var VueMaterial = require('vue-material');
+
+Vue.use(VueMaterial);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -16,9 +19,17 @@ window.Vue = require('vue');
  */
 
 Vue.component('example', require('./components/Example.vue'));
+Vue.component('modal', require('./components/Modal.vue'));
 
 const app = new Vue({
     el: '#app'
+});
+
+const modal = new Vue ({
+   el: '#window',
+    data: {
+       currentView : 'login'
+    },
 });
 
 $(document).ready(function () {
@@ -52,23 +63,30 @@ $(document).ready(function () {
        else barOpen();
        barPosition = !barPosition;
    });
+   function renderTemplate(content) {
+       $('#window > section').css('display', 'none');
+       $(content).css('display', 'block');
+   }
    $('a[href="#modal"]').on('click', function (e) {
        e.preventDefault();
+       var content = $(this).attr('data-content');
+       $('#window').html(renderTemplate(content));
        $('#modal').css({
            display: 'flex',
        });
        $('body').css({
-           overflow: 'hidden',
+           //overflow: 'hidden',
        });
    });
-   $('#modal').on('click', function () {
-      $(this).css({
-          display: 'none',
-      });
-       $('body').css({
-           overflow: 'auto',
-           position: 'relative',
-       });
+   $(document).mouseup(function (e) {
+       var container = $("#modal");
+       if (container.has(e.target).length === 0){
+           container.hide();
+           $('body').css({
+               overflow: 'auto',
+               position: 'relative',
+           });
+       }
    });
 
    // Parallax
@@ -90,4 +108,5 @@ $(document).ready(function () {
            });
        });
 
+   // TEMPLATES
 });

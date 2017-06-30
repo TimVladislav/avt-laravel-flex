@@ -18,7 +18,97 @@
     <a class="nav__btn nav__btn--floating" href="#nav__right-bar"><i class="fa fa-bars"></i></a>
     <section id="modal">
         <section id="window">
-            
+            @if (Auth::guest())
+                <section id="login">
+                    <form class="form-horizontal" role="form" method="POST" action="{{ route('login') }}">
+                        {{ csrf_field() }}
+                        <md-input-container class="col-md-6">
+                            <label for="email" class="col-md-4 control-label">E-Mail</label>
+                            <md-input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required autofocus>
+
+                            @if ($errors->has('email'))
+                                <span class="help-block">
+                                    <strong>{{ $errors->first('email') }}</strong>
+                                </span>
+                            @endif
+                        </md-input-container>
+                        <md-input-container class="col-md-6">
+                            <label for="password" class="col-md-4 control-label">Пароль</label>
+                            <md-input id="password" type="password" class="form-control" name="password" required>
+
+                            @if ($errors->has('password'))
+                                <span class="help-block">
+                                    <strong>{{ $errors->first('password') }}</strong>
+                                </span>
+                            @endif
+                        </md-input-container>
+                        <div class="form-group">
+                            <div class="col-md-6 col-md-offset-4">
+                                <div class="checkbox">
+                                    <md-checkbox type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}> Запомнить меня</md-checkbox>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-8 col-md-offset-4">
+                                <md-button type="submit">
+                                    Войти
+                                </md-button>
+
+                                <md-button class="btn btn-link" href="{{ route('password.request') }}">
+                                    Забыли пароль?
+                                </md-button>
+                            </div>
+                        </div>
+                    </form>
+                </section>
+                <section id="register">
+                    <form class="form-horizontal" role="form" method="POST" action="{{ route('register') }}">
+                        {{ csrf_field() }}
+                        <md-input-container class="col-md-6">
+                            <label for="name" class="col-md-4 control-label">Имя</label>
+                            <md-input id="name" type="text" class="form-control" name="name" value="{{ old('name') }}" required autofocus>
+
+                            @if ($errors->has('name'))
+                                <span class="help-block">
+                                    <strong>{{ $errors->first('name') }}</strong>
+                                </span>
+                            @endif
+                        </md-input-container>
+                        <md-input-container class="col-md-6">
+                            <label for="email" class="col-md-4 control-label">E-Mail</label>
+                            <md-input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required>
+
+                            @if ($errors->has('email'))
+                                <span class="help-block">
+                                    <strong>{{ $errors->first('email') }}</strong>
+                                </span>
+                            @endif
+                        </md-input-container>
+                        <md-input-container class="col-md-6">
+                            <label for="password" class="col-md-4 control-label">Пароль</label>
+                            <md-input id="password" type="password" class="form-control" name="password" required>
+
+                            @if ($errors->has('password'))
+                                <span class="help-block">
+                                    <strong>{{ $errors->first('password') }}</strong>
+                                </span>
+                            @endif
+                        </md-input-container>
+                        <md-input-container class="col-md-6">
+                            <label for="password-confirm" class="col-md-4 control-label">Еще раз</label>
+                            <md-input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
+                        </md-input-container>
+                        <div class="form-group">
+                            <div class="col-md-6 col-md-offset-4">
+                                <md-button type="submit" class="btn btn-primary">
+                                    Зарегистрироваться
+                                </md-button>
+                            </div>
+                        </div>
+                    </form>
+                </section>
+            @endif
         </section>
     </section>
     <main id="app">
@@ -40,8 +130,8 @@
             <ul class="nav navbar-nav navbar-right">
                 <!-- Authentication Links -->
                 @if (Auth::guest())
-                    <li><a href="{{ route('login') }}">Войти</a></li>
-                    <li><a href="{{ route('register') }}">Зарегистрироваться</a></li>
+                    <li><a href="#modal" data-content="#login">Войти</a></li>
+                    <li><a href="#modal" data-content="#register">Зарегистрироваться</a></li>
                 @else
                     <li class="dropdown">
                         <a href="/home" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">

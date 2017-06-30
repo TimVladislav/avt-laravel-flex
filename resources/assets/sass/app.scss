@@ -15,6 +15,9 @@
 @import "public/sliders/slick-1.6.0/slick/slick.scss";
 @import "public/sliders/slick-1.6.0/slick/slick-theme.scss";
 
+// vue-material
+@import "../../../node_modules/vue-material/dist/vue-material.css";
+
 $red:         #f0394d;
 $gray:        #666;
 $gray-dark:   #333;
@@ -72,6 +75,10 @@ p {
   background-color: white;
   padding: 25px;
   z-index: 1;
+  flex-direction: column;
+}
+#login, #register {
+  display: none;
 }
 #app {
   display: flex;
