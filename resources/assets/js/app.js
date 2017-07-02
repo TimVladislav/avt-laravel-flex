@@ -78,13 +78,18 @@ $(document).ready(function () {
                $('#window').css({
                    'padding': '0',
                });
-               player = new YT.Player(content, {
+               $('#' + content).html('<section id="yt"></section>');
+               player = new YT.Player('yt', {
                    height: '360',
                    width: '640',
                    videoId: link.substring(17),
                });
 
                $('#' + content).css({
+                   'display': 'block',
+                   'height': '360px',
+               });
+               $('#yt').css({
                    'display': 'block',
                    'height': '360px',
                });

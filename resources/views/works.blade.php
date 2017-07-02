@@ -15,8 +15,8 @@
         </section>
     </section>
     <section class="container container--row">
-        @foreach($works as $work)
-            <section class="col col-md-8">
+        <section class="col col-md-8">
+            @foreach($works as $work)
                 <section class="video-card col--bg-white">
                     <section class="video-card__img">
                         <img src="{{$work->youtubePreview()}}" alt="">
@@ -28,8 +28,8 @@
                     <h3 class="video-card__title">{{$work->title}}</h3>
                     <p class="video-card__description">{{$work->description}}</p>
                 </section>
-            </section>
-        @endforeach
+            @endforeach
+        </section>
         <section class="col col-md-4">
             <section class="filter col--bg-white">
                 <h3 class="filter__title">FILTER</h3>
