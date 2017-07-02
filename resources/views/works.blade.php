@@ -15,18 +15,21 @@
         </section>
     </section>
     <section class="container container--row">
-        <section class="col col-md-8">
-            <section class="video-card col--bg-white">
-                <section class="video-card__img" style="background-image: url(http://nevesta.moscow/wp-content/uploads/2016/06/AA_029.jpg)">
-                    <section class="links">
-                        <a href="#modal"><i class="fa fa-play"></i></a>
+        @foreach($works as $work)
+            <section class="col col-md-8">
+                <section class="video-card col--bg-white">
+                    <section class="video-card__img">
+                        <img src="{{$work->youtubePreview()}}" alt="">
+                        <section class="links">
+                            <a href="#modal" data-content="video" data-resourse="youtube" data-link="{{$work->link}}"><i class="fa fa-play"></i></a>
+                        </section>
+                        <i class="fa fa-heart"></i>
                     </section>
-                    <i class="fa fa-heart"></i>
+                    <h3 class="video-card__title">{{$work->title}}</h3>
+                    <p class="video-card__description">{{$work->description}}</p>
                 </section>
-                <h3 class="video-card__title">OUR FIRST DATING</h3>
-                <p class="video-card__description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce urna urna, imperdiet et purus ut, ultricies sollicitudin arcu. Cras placerat, arcu non</p>
             </section>
-        </section>
+        @endforeach
         <section class="col col-md-4">
             <section class="filter col--bg-white">
                 <h3 class="filter__title">FILTER</h3>

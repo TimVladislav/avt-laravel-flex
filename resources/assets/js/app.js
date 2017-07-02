@@ -35,6 +35,13 @@ const modal = new Vue ({
 $(document).ready(function () {
    var barPosition = false;
    var element = $('.nav__btn--floating');
+
+   // Youtube
+   var tag = document.createElement('script');
+   tag.src = "https://www.youtube.com/iframe_api";
+   var firstScriptTag = document.getElementsByTagName('script')[0];
+   firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
    $(window).scroll(function() {
        element['fade' + ($(this).scrollTop() > $(window).height() ? 'In' : 'Out')](0);
    });
@@ -63,14 +70,39 @@ $(document).ready(function () {
        else barOpen();
        barPosition = !barPosition;
    });
-   function renderTemplate(content) {
-       $('#window > section').css('display', 'none');
-       $(content).css('display', 'block');
+   function renderTemplate(content, link = '', resource = '') {
+       $('#window > section, #window > iframe').css('display', 'none');
+       switch (content) {
+           case 'video':
+               var player;
+               $('#window').css({
+                   'padding': '0',
+               });
+               player = new YT.Player(content, {
+                   height: '360',
+                   width: '640',
+                   videoId: link.substring(17),
+               });
+
+               $('#' + content).css({
+                   'display': 'block',
+                   'height': '360px',
+               });
+               break;
+           default :
+               $('#window').css({
+                   'padding': '25px',
+               });
+               $(content).css('display', 'block');
+       }
+
    }
    $('a[href="#modal"]').on('click', function (e) {
        e.preventDefault();
        var content = $(this).attr('data-content');
-       $('#window').html(renderTemplate(content));
+       var resource = $(this).attr('data-resource');
+       var link = $(this).attr('data-link');
+       $('#window').html(renderTemplate(content, link, resource));
        $('#modal').css({
            display: 'flex',
        });

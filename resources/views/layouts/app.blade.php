@@ -113,6 +113,9 @@
                     <md-button href="/home">Административная панель</md-button>
                 </section>
             @endif
+            <section id="video">
+
+            </section>
         </section>
     </section>
     <main id="app">

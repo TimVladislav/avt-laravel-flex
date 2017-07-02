@@ -19,7 +19,5 @@ Auth::routes();
 Route::middleware(['role:admin'])->group(function () {
     Route::get('/home', 'HomeController@index')->name('home');
 });
-Route::get('/works', function (){
-  return view('works');
-});
+Route::get('/works', 'WorkController@index')->name('work');
 
