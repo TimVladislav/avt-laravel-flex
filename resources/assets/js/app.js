@@ -119,6 +119,7 @@ $(document).ready(function () {
        var container = $("#modal");
        if (container.has(e.target).length === 0){
            container.hide();
+           $('#video').html('<section id="yt"></section>');
            $('body').css({
                overflow: 'auto',
                position: 'relative',
@@ -127,10 +128,16 @@ $(document).ready(function () {
    });
    $('a[href^="#filter"]').on('click', function () {
       filter_works($(this).attr('data-filter'));
+      $('.filter__item>a').removeClass('active');
+      $(this).addClass('active');
    });
    function filter_works(filter_mark) {
-      $('section[data-type^="filter_item"]:not(section[data-category^="' + filter_mark + '"])').hide("slow");
-      $('section[data-category^="' + filter_mark + '"]').show("slow");
+      if (filter_mark != 0) {
+          $('section[data-type^="filter_item"]:not(section[data-category^="' + filter_mark + '"])').hide("slow");
+          $('section[data-category^="' + filter_mark + '"]').show("slow");
+      } else {
+          $('section[data-type^="filter_item"]').show("slow");
+      }
    }
 
    // Parallax
