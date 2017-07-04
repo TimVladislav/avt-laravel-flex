@@ -110,7 +110,7 @@
                 </section>
             @else
                 <section id="lk">
-                    <md-button href="/home">Административная панель</md-button>
+                    <md-button href="/admin/dashboard">Административная панель</md-button>
                 </section>
             @endif
             <section id="video">
