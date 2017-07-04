@@ -17,7 +17,7 @@
     <section class="container container--row">
         <section class="col col-md-8">
             @foreach($works as $work)
-                <section class="video-card col--bg-white">
+                <section class="video-card col--bg-white" data-category="{{$work->category->id}}" data-type="filter_item">
                     <section class="video-card__img">
                         <img src="{{$work->youtubePreview()}}" alt="">
                         <section class="links">
@@ -32,11 +32,12 @@
         </section>
         <section class="col col-md-4">
             <section class="filter col--bg-white">
-                <h3 class="filter__title">FILTER</h3>
+                <h3 class="filter__title">КАТЕГОРИИ</h3>
                 <ul>
-                    <li class="filter__item"><a href="#">Item 1</a></li>
-                    <li class="filter__item"><a href="#">Item 2</a></li>
-                    <li class="filter__item"><a href="#">Item 3</a></li>
+                    <li class="filter__item"><a data-filter="0" class="active" href="#filter">Все</a></li>
+                    @foreach($categories as $category)
+                        <li class="filter__item"><a data-filter="{{$category->id}}" href="#filter">{{$category->filter_name}}</a></li>
+                    @endforeach
                 </ul>
             </section>
         </section>

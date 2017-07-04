@@ -125,6 +125,13 @@ $(document).ready(function () {
            });
        }
    });
+   $('a[href^="#filter"]').on('click', function () {
+      filter_works($(this).attr('data-filter'));
+   });
+   function filter_works(filter_mark) {
+      $('section[data-type^="filter_item"]:not(section[data-category^="' + filter_mark + '"])').hide("slow");
+      $('section[data-category^="' + filter_mark + '"]').show("slow");
+   }
 
    // Parallax
    if (!device.desktop()) {

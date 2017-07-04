@@ -595,6 +595,9 @@ p {
 .links:hover {
   opacity: 1;
 }
+.active {
+  color: $red !important;
+}
 
 @media screen and (max-width: 1200px) {
   .container {
